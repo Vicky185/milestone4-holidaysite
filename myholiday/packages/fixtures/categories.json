@@ -1,0 +1,50 @@
+[
+  {
+    "pk": 1,
+    "model": "packages.category",
+    "fields": {
+      "name": "beach",
+      "friendly_name": "Beach"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "packages.category",
+    "fields": {
+      "name": "city",
+      "friendly_name": "City"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "packages.category",
+    "fields": {
+      "name": "ski",
+      "friendly_name": "Ski"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "packages.category",
+    "fields": {
+      "name": "culture",
+      "friendly_name": "Culture"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "packages.category",
+    "fields": {
+      "name": "safari",
+      "friendly_name": "Safari"
+    }
+  },
+  {
+    "pk": 6,
+    "model": "packages.category",
+    "fields": {
+      "name": "party",
+      "friendly_name": "Party"
+    }
+  }
+]

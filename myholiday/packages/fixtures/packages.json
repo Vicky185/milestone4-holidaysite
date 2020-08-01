@@ -1,0 +1,128 @@
+[
+  {
+    "pk": 1,
+    "model": "packages.package",
+    "fields": {
+      "sku": "pp101",
+      "category": 1,
+      "name": "Bali Beach",
+      "destination": "Bali, Indonesia",
+      "departs": "London Heathrow",
+      "length": "14 nights",
+      "start": "2020-11-01",
+      "cover": "Half Board",
+      "description": "On Bali’s quieter northern coast, this tropical hideaway offers the ultimate in secluded beachfront relaxation. Nestled between the Bedugul mountains and the Bali Sea, The Lovina Bali sits in gorgeous gardens, overlooking a pretty black sand stretch of Lovina Beach. For those feeling a sunbathing day, there are two pools to flop by with one facing the mountains, and the other with views overlooking the ocean. There is also the option to visit the Body Tonic Spa; room treatments are available too. For explorations of the local area, take advantage of the hotel's free bikes or stretch your legs with a stroll to the shops and restaurants on Lovina’s main street. Heading further out, take a short drive into Singaraja – the former colonial capital of Bali – or head south to Lake Beratan and admire the postcard-famous views of the Ulun Danu Temple.\n Stylish suites and villas are your room choices here; each one a tropical retreat where contemporary décor combines with authentic Indonesian style. Adding a touch more indulgence to your stay, a dedicated butler service is available to all rooms on requenst. Choose the mountain views in the Deluxe Suites, which come with their own private terrace and cosy lounge area, or upgrade to a Garden Pool Villa to enjoy an open-plan kitchen and private pool. The most spectacular ocean views can be found in the Grand Beach Villas – secluded hideaways with four spacious bedrooms, an outdoor bathroom and private gardens that open out directly onto the beach.\n All-day meals can be enjoyed at the Restaurant & Pizzeria. Dine on an international menu fused with local Asian flavours, alongside fantastic rice paddy views. For more casual meals, a wood-burning oven delivers Italian-worthy homemade pizzas. Come the evening, the beach bar is a great pre or post dinner hangout with chilled-out lounge music and exotic cocktail creations –even better when accompanied with a legendary Lovina sunset. For a romantic evening for two, there is also the option of private dining on the beach or in the exclusivity of your own suite or villa.",
+      "price": 3569.99,
+      "rating": 4.8,
+      "image_url": "https://images.pexels.com/photos/1802183/pexels-photo-1802183.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "packages.package",
+    "fields": {
+      "sku": "pp102",
+      "category": 2,
+      "name": "New York City Break",
+      "destination": "New York City, USA",
+      "departs": "London Heathrow",
+      "length": "4 nights",
+      "start": "2020-12-01",
+      "cover": "Full Board",
+      "description": "An iconic destination of bright lights and big city sights, few destinations can match the sensations of excitement and sophistication that luxury New York holidays can bring.\n Imagine bustling down grand boulevards, saddled with shopping bags and swirling into your luxury hotel. Absorb the hubbub in a grand lobby, then marvel as top-hatted doormen whistle for cabs as their brass-buttoned coats glisten in a Manhattan sunset. Head back out into the cool air for an evening of express dining, with cuisine from every corner of the world the perfect aperitif to a stroll on glitzy Broadway and perhaps even a show.\n Our Kuoni Collection hotels in New York include the historic Jumeirah Essex House, the sophisticated Mandarin Oriental and the stylish The London NYC.",
+      "price": 699,
+      "rating": 5,
+      "image_url": "https://images.pexels.com/photos/2190283/pexels-photo-2190283.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "packages.package",
+    "fields": {
+      "sku": "pp103",
+      "category": 6,
+      "name": "Santa Eulalia",
+      "destination": "Ibiza, The Balearics",
+      "departs": "London Luton or Stansted",
+      "length": "5 nights",
+      "start": "2021-04-01",
+      "cover": "B&B",
+      "description": "As one of the top beach resorts in Ibiza, Santa Eulalia lives up to its status, with pristine sandy beaches and crystal clear waters. Located on the east of the island, Santa Eulalia is a quiet town, with an emphasis on family holidays, good shopping and great dining. With a reputation as the cultural and gastronomic centre, make sure you choose a Santa Eulalia holiday.\n This is the Balearics, so a good beach is par for the course, and Santa Eulalia has a very good one, with a gentle slope into the sea that makes it safe for kids. Even better, it is no smoking, and has a smart, palm-lined promenade that runs alongside. Coupled with outstanding views of the surrounding hills and a peaceful river that meanders up to a restored Roman bridge, Santa Eulalia has the best of the outdoors.\n Most of the action in the resort is around Calle San Jaime, on the main strip, where you will find boutiques and cafés. The town shuts to traffic in the evening and chairs from the restaurants start to spill over the pavements and into the street.",
+      "price": 699,
+      "rating": 4.2,
+      "image_url": "https://images.pexels.com/photos/2990971/pexels-photo-2990971.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "packages.package",
+    "fields": {
+      "sku": "pp104",
+      "category": 4,
+      "name": "Local Japan",
+      "destination": "Tokyo, Japan",
+      "departs": "London Heathrow or Gatwick",
+      "length": "14 nights",
+      "start": "2021-01-01",
+      "cover": "B&B",
+      "description": "Our Japan tours are sure to ignite any traveller's wanderlust. It is a place simultaneously steeped in centuries of highly revered traditions and a pioneering force at the cutting-edge of technology and innovation, hurtling at breakneck speed towards the future.\n The cities are mesmerising, with Kyoto's haven of temples, shrines and gardens, or downtown Tokyo's kaleidoscope of colourful adverts and bustling streets. But trips to Japan should be about balance, and all our Japan trips take in its phenomenal natural beauty, from the perfect cone of Mount Fuji to the near-magical onsens, or thermal pools, that dot the countryside.\n Ancient wooden temples, raked-pebble Zen gardens and chanting Buddhist monks juxtaposed with space-age towers, neon lights and bullet trains; Japan’s captivating blend of old and new is legendary. As we explore the southern and western stretches of Honshu, Japan's largest island, we discover the country's unique culture amongst the serene shrines and gardens of Nara and Kyoto and the rarely visited mountainous heartland of castles and spas. Our last stop is the vast and futuristic capital city of Tokyo: sprawling, inimitably busy, welcoming and extraordinary.",
+      "price": 3809,
+      "rating": 5,
+      "image_url": "https://images.pexels.com/photos/1108701/pexels-photo-1108701.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "packages.package",
+    "fields": {
+      "sku": "pp105",
+      "category": 5,
+      "name": "South African Explorer",
+      "destination": "Pretoria, South Africa",
+      "departs": "London Heathrow",
+      "length": "14 nights",
+      "start": "2020-10-01",
+      "cover": "Full Board",
+      "description": "South Africa is one of the most famous safari destinations in Africa and arguably the best place for up close sightings of the Big 5 (lion, leopard, rhino, buffalo and elephant). Choosing South Africa for your safari adventure is perfect if you want to combine your travel time with a relaxing beach break or a culture-filled city break, allowing for a more diverse experience.\n Example Itinerary:\n Day 1\n Arrive in Johannesburg, stay in a luxury 5 start hotel.\n Day 2-10\n Drive to Pretoria National Park, explore the nature and wilds of our true South African world. Spot the Big 5 on our guided tour of the park and stay our in our luxurious Lodges and awaken to the sounds of true Africa. 100% safety ensured at all times.\n Day 11\n Visit baby lions and animal protection reserve.\n Day 11-13\n Drive to the Eastern Cape and explore the green and mountainous landscape home to many of our wonderful animals.\n Day 14\n Return trip to Johannesburg.",
+      "price": 4999.99,
+      "rating": 5,
+      "image_url": "https://images.pexels.com/photos/59989/elephant-herd-of-elephants-african-bush-elephant-africa-59989.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+    }
+  },
+  {
+    "pk": 6,
+    "model": "packages.package",
+    "fields": {
+      "sku": "pp106",
+      "category": 1,
+      "name": "Maafushivaru Maldives",
+      "destination": "The Maldives",
+      "departs": "London Heathrow",
+      "length": "7 nights",
+      "start": "2020-09-10",
+      "cover": "Full Board",
+      "description": "Just 350m in length, Maafushivaru is small and romantic, with two wide beaches and a glorious lagoon. There’s a house reef for snorkelling and if you board one of the dive centre’s boat trips there’s a great chance of spotting turtles, manta rays and whale sharks nearby. An infinity pool is perfectly placed on the beachfront, next to the bar with comfy chic sofas for lounging. The main buffet restaurant offers Mediterranean cuisine infused with local flavours.\n Maafushivaru’s secret delight is its beautiful uninhabited sister island, Lonubo. For an authentic Crusoe-esque experience, take a short boat ride across to this tiny desert island for romantic picnics, candlelit dining or even an overnight stay in the Beach Villa with outdoor hot tub. We recommend pre-booking a dinner or private island stay – only one couple can visit at a time and it’s deservedly popular.\n The villas are stylish with Maldivian touches. Refurbished Beach Villas are just steps from the beach with a semi open-air bathroom. Light and airy Water Villas sit on stilts over the lagoon, with floor-to-ceiling windows and direct access to the water. Beautiful new Beach Pool Villas and Water Pool Villas will have their own plunge pool on the private deck.",
+      "price": 2500,
+      "rating": 4.9,
+      "image_url": "https://images.pexels.com/photos/1483053/pexels-photo-1483053.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+    }
+  },
+  {
+    "pk": 7,
+    "model": "packages.package",
+    "fields": {
+      "sku": "pp107",
+      "category": 3,
+      "name": "Luxury Ski Trip and Chalet",
+      "destination": "Nassfield, Austria",
+      "departs": "London Luton or Stansted",
+      "length": "7 nights",
+      "start": "2021-03-01",
+      "cover": "B&B",
+      "description": "The largest resort in the southern Austrian region of Carinthia, Nassfeld is nestled up to the Italian and Slovenian borders. Scenic and sunny, it has a wide range of intermediate slopes, along with a selection of mountain huts and Ristorante for a delicious lunch.\n Nassfeld itself and Sonnleiten are mid-mountain lift bases with accommodation, while there’s more down in the valley village of Tröpolach at the bottom of the access gondola. A two-stage gondola gives access to the Madritsche mid station at 1,920m, with nursery slopes and amenities. Lifts serve slopes below Trogkofel and the higher peak of Gartnerkofel at 2,195m.\n Most hotels are just a few minutes walk from the slopes and lifts, so it's easy to get out in the morning and back in the afternoon. The resort is also only 60 minutes from Klagenfurt airport, so you'll be up amongst the snow in no time.\n In addition to the majority blue and red runs, there are some black pistes and access to off-piste ski routes. There’s a half pipe, fun park and race course with automatically-recorded videos - look out for the ‘Nice Surprise’ information boards guiding you to these highlights. There’s even free Wi-Fi across the resort, so you can share your snaps while still on the slopes.\n Away from the mountain, try the 80km worth of cross-country trails, see the valley by snow shoe, or take a ride on a horse-drawn sleigh ride.",
+      "price": 500,
+      "rating": 4.8,
+      "image_url": "https://images.pexels.com/photos/2433353/pexels-photo-2433353.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+    }
+  }
+]
