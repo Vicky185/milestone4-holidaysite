@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.db.models import Q
 from .models import Package, Category
+from django.db.models.functions import Lower
 
 # Create your views here.
 def all_packages(request):
@@ -21,7 +22,8 @@ def all_packages(request):
                 if sortkey == 'name':
                     sortkey = 'lower_name'
                     packages = packages.annotate(lower_name=Lower('name'))
-
+                if sortkey == 'category':
+                    sortkey = 'category__name'
                 if 'direction' in request.GET:
                     direction = request.GET['direction']
                     if direction == 'desc':

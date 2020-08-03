@@ -1,0 +1,39 @@
+<div class="collapse navbar-collapse" id="main-nav">
+    <ul class="navbar-nav w-auto mx-auto">
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="all-packages-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                All Available Packages
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="all-packages-link">
+                <a href="{% url 'packages' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                <a href="{% url 'packages' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
+                <a href="{% url 'packages' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
+                <a href="{% url 'packages' %}" class="dropdown-item">All Packages</a>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="all-categories-link" data-toggle="dropdown" aria-labelledby="categories-link">Types of Holiday </a>
+            <div class="dropdown-menu border-0" aria-labelledby="categories-link">
+                <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'packages' %}?category=beach"   id="beach-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Beach Holidays
+                </a>
+                <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'packages' %}?category=party"   id="party-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Party Holidays
+                </a>
+                <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'packages' %}?category=ski" id="ski-link"   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Ski Holidays
+                </a>
+                <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'packages' %}?category=culture"     id="culture-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Cultural Holidays
+                </a>
+                <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'packages' %}?category=safari" id="safari-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Safari Holidays
+                </a>
+                <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'packages' %}?category=city" id="city-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                City Break Holidays
+                </a>
+            </div>
+        </li>
+    </ul>
+</div>
