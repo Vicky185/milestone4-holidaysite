@@ -9,7 +9,6 @@ from shoppingcart.contexts import cart_contents
 
 import stripe
 
-# Create your views here.
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
@@ -43,21 +42,19 @@ def checkout(request):
                         order_line_item.save()
                 except Package.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your bag wasn't found in our database. "
-                        "Please call us for help!")
-                    )
+                        "One of the packages in your cart wasn't found in our database. Please call us for help!")
+                        )
                     order.delete()
                     return redirect(reverse('view_cart'))
-
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
-            messages.error(request, 'There was an error with your form. \
+            messages.error(request, 'There is an error with your form. \
                 Please double check your information.')
     else:
         cart = request.session.get('cart', {})
         if not cart:
-            messages.error(request, "There's nothing in your bag at the moment")
+            messages.error(request, "There's nothing in your cart   at the moment")
             return redirect(reverse('packages'))
 
         current_cart = cart_contents(request)
@@ -71,21 +68,21 @@ def checkout(request):
 
         order_form = OrderForm()
 
-    if not stripe_public_key:
-        messages.warning(request, 'Stripe public key is missing. \
+        if not stripe_public_key:
+            messages.warning(request, 'Stripe public key is missing. \
             Did you forget to set it in your environment?')
 
-    template = 'checkout/checkout.html'
-    context = {
-        'order_form': order_form,
-        'stripe_public_key': stripe_public_key,
-        'client_secret': intent.client_secret,
-    }
+        template = 'checkout/checkout.html'
+        context = {
+            'order_form': order_form,
+            'stripe_public_key': stripe_public_key,
+            'client_secret': intent.client_secret,
+        }
 
-    return render(request, template, context)
+        return render(request, template, context)
 
 def checkout_success(request, order_number):
-    """  Handle successful checkouts  """
+    """ Handle successful checkouts """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
     messages.success(request, f'Order successfully processed! \
@@ -99,6 +96,4 @@ def checkout_success(request, order_number):
     context = {
         'order': order,
     }
-
     return render(request, template, context)
-        
