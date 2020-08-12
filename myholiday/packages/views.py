@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
@@ -69,8 +70,14 @@ def one_package_detail(request, package_id):
 
     return render(request, 'packages/one_package_detail.html', context_detail)
 
+@login_required
 def add_package(request):
     """ Add a package to the available holidays """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only members of the MyHoliday travels team can do that...')
+        return redirect(reverse('home'))
+
     if request.method == 'POST':
         form = PackageForm(request.POST, request.FILES)
         if form.is_valid():
@@ -89,8 +96,13 @@ def add_package(request):
 
     return render(request, template, context)
 
+@login_required
 def edit_package(request, package_id):
     """ Edit an existing available travel package  """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only members of the MyHoliday travels team can do that...')
+        return redirect(reverse('home'))
 
     package = get_object_or_404(Package, pk=package_id)
     if request.method == 'POST':
@@ -113,9 +125,14 @@ def edit_package(request, package_id):
 
     return render(request, template, context)
 
+@login_required
 def delete_package(request, package_id):
     """ Delete an existing available travel package  """
 
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only members of the MyHoliday travels team can do that...')
+        return redirect(reverse('home'))
+        
     package = get_object_or_404(Package, pk=package_id)
     package.delete()
     messages.success(request, 'Package deleted!')
