@@ -46,6 +46,12 @@
                         {% else %}
                             <small class="text-muted"> No Rating </small>
                     {% endif %}
+                    {% if request.user.is_superuser %}
+                        <small class="ml-3">
+                            <a href="{% url 'edit_package' package.id %}"> Edit </a>
+                            <a class="text-danger" href="{% url 'delete_package' package.id %}"> Delete </a>
+                        </small>
+                    {% endif %}
                     <p class="mt-3">{{ package.cover }}</p>
                     <p class="mt-3">{{ package.length }}</p>
                     <p class="mt-3">Available from: {{ package.start }}</p>
