@@ -1,8 +1,11 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.db.models import Q
-from .models import Package, Category
 from django.db.models.functions import Lower
+
+from .models import Package, Category
+from .forms import PackageForm
+
 
 # Create your views here.
 def all_packages(request):
@@ -65,3 +68,13 @@ def one_package_detail(request, package_id):
     }
 
     return render(request, 'packages/one_package_detail.html', context_detail)
+
+def add_package(request):
+    """ Add a package to the available holidays """
+    form = PackageForm()
+    template = 'packages/add_package.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
