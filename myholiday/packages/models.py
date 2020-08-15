@@ -1,4 +1,7 @@
 from django.db import models
+from django.utils import timezone
+
+from profiles.models import User
 
 # Create your models here.
 class Category(models.Model):
@@ -34,4 +37,18 @@ class Package(models.Model):
     def __str__(self):
         return self.name
 
+class Comment(models.Model):
+    user = models.ForeignKey(User, null=False, on_delete=models.DO_NOTHING)   
+    package = models.ForeignKey(Package, null=False, on_delete=models.CASCADE)
+    submitted_at = models.DateTimeField(auto_now_add=True)
+    text = models.TextField(blank=False, null=False)
+    active = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = (
+            'submitted_at',
+            )
+
+    def __str__(self):
+        return f'Comment by {self.user} on {self.package} at {self.submitted_at}'
 

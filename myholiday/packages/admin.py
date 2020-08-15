@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Package, Category
+from .models import Package, Category, Comment
 
 # Register your models here.
 
@@ -25,5 +25,24 @@ class CategoryAdmin(admin.ModelAdmin):
         'name',
     )
 
+class CommentAdmin(admin.ModelAdmin):
+    list_display = (
+        'user',
+        'package',
+        'submitted_at',
+        'text',
+        'active',
+    )
+    list_filter = (
+        'active',
+        'user',
+        'submitted_at',
+    )
+    actions = ['approve_comments']
+
+    def approve_comments(self, request, queryset):
+        queryset.update(active=True)
+
 admin.site.register(Package, PackageAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(Comment, CommentAdmin)

@@ -1,5 +1,6 @@
 from django import forms
-from .models import Package, Category
+
+from .models import Package, Category, Comment
 
 class PackageForm(forms.ModelForm):
 
@@ -16,3 +17,12 @@ class PackageForm(forms.ModelForm):
         self.fields['category'].choices = friendly_names
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = (
+            'user',
+            'package',
+            'text',
+            )

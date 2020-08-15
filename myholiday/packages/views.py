@@ -4,8 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
-from .models import Package, Category
-from .forms import PackageForm
+from .models import Package, Category, Comment
+from .forms import PackageForm, CommentForm
 
 
 # Create your views here.
@@ -64,11 +64,37 @@ def one_package_detail(request, package_id):
     """ a view to show individual package with more detail and description """
     package = get_object_or_404(Package, pk=package_id)
 
+    # List of comments for this post
+    comments = Comment.objects.all()
+
+    new_comment = None
+
+    if request.method == 'POST':
+        # A comment is or was posted
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            # Create a comment object but don't save to database just yet
+            new_comment = comment_form.save(commit=False)
+            # Assign the current package to the comment
+            new_comment.package = package_id
+            # Save the comment to database
+            new_comment.save()
+            messages.success(request, 'Successfully added your comment/review!')
+            return redirect(reverse('one_package_detail', args=[package.id]))
+        else:
+            messages.error(request, 'Failes to add your comment to this package. Please ensure the form is valid.')
+    else:
+        comment_form = CommentForm()
+
+    template = 'packages/one_package_detail.html'
     context_detail = {
         'package': package,
+        'comments': comments,
+        'new_comment': new_comment,
+        'comment_form': comment_form,
     }
 
-    return render(request, 'packages/one_package_detail.html', context_detail)
+    return render(request, template, context_detail)
 
 @login_required
 def add_package(request):
@@ -88,7 +114,7 @@ def add_package(request):
             messages.error(request, 'Failed to add the new package. Please ensure the form is valid.')
     else:
         form = PackageForm()
-        
+
     template = 'packages/add_package.html'
     context = {
         'form': form,
@@ -137,3 +163,4 @@ def delete_package(request, package_id):
     package.delete()
     messages.success(request, 'Package deleted!')
     return redirect(reverse('packages'))
+
