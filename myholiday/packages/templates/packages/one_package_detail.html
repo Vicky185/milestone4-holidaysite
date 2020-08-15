@@ -113,6 +113,10 @@
                             {{ comment.text | linebreaks }}
                         </div>
                     {% endfor %}
+                    <h6> Register or Sign in to add your own comment! </h6>
+                    <a href="{% url 'account_signup' %}" class="btn btn-light">Register</a>
+                    <a href="{% url 'account_login' %}" class="btn btn-light">Login</a>
+            {% if request.user.is_authenticated %}
                     <div class="card-body">
                     {% if new_comment %}
                         <div class="alert alert-success" role="alert">
@@ -131,6 +135,7 @@
                     {% endif %}
                 </div>
             </div>
+            {% endif %}
         </div>
     </div>
 

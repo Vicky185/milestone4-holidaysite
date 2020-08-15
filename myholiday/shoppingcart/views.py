@@ -49,11 +49,10 @@ def remove_from_cart(request, item_id):
     """ Remove item from the cart """
     cart = request.session.get('cart', {})
     package = get_object_or_404(Package, pk=item_id)
-    
-    item_id = str(item_id)
+
     if item_id in cart:
         del cart[item_id]
     messages.success(request, f'Removed {package.name} from your travels')
-    
+
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))

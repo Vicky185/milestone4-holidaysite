@@ -1,14 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Karla:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 html {
     height: 100%;
 }
 
 body {
-    background: url('/media/mountains.mp4') no-repeat center center fixed;
-    background-size: cover;
     height: calc(100vh - 164px);
-    color: #555;
-    font-family: 'Lato';
+    font-family: 'Karla';
+    margin-left: 0;
+    padding-left: 0;
 }
+
+footer {
+    background-color: #e4f0f7;
+    color: #aab7c4;
+    font-family: 'Karla';
+}
+
+/* styling for index.html */
+.callout {
+    height: 500px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+   /* position: relative;*/
+}
+
+video {
+    margin-top: 250px;
+    margin-bottom: 50px;
+}
+
+.jumbotron {
+    background-color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+}
+
+.jumbotron h1 {
+    color: #f3cf55;
+    font-family: 'Alata', sans-serif;
+    font-weight: bold;
+    margin-bottom: 5px;
+    letter-spacing: 1em;
+}
+
+.jumbotron h5 {
+    color: #fbf2e3;
+    font-family: 'Karla', sans-serif;
+    margin-bottom: 30px;
+}
+
+#new-banner {
+    position: fixed;
+    margin-bottom: 50px;
+    color: black !important;
+    text-align: center;
+    font-family: 'Karla', sans-serif;
+}
+
+/* light pink color = #fbf2e3
+primrose yellow color = #f3cf55
+dark text color = #344345
+light blue color = #288ec2
+off white color = #ecf0f2
+ */
+
 
 /* from Bulma */
 .icon {
@@ -20,21 +82,21 @@ body {
 }
 
 .logo-font {
-    text-transform: uppercase;
+    font-family: 'Alata', sans-serif;
 }
 
 .main-logo-link {
     width: fit-content;
 }
 
-.buy-now-button {
-    background: black;
+.travel-now-button {
+    background: #aab7c4;
     color: white;
     min-width: 260px;
 }
 
 .btn-black {
-    background: black;
+    background: #aab7c4;
     color: white;
 }
 
@@ -50,30 +112,20 @@ body {
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
-    background: black;
+    background: ;
     color: white;
 }
 
 .text-black {
-    color: #000 !important; 
+    color: #fff !important; 
 }
 
 .border-black {
-    border: 1px solid black !important;
+    border: 1px solid #aab7c4 !important;
 }
 
 .bg-black {
-    background: #000 !important;
-}
-
-.overlay {
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
-    background: white;
-    z-index: -1;
+    background: #6c757d !important;
 }
 
 a.category-badge > span.badge:hover {
@@ -123,7 +175,7 @@ input[name='q']::placeholder {
     height: 0;
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
-    border-bottom: 10px solid black;
+    border-bottom: 10px solid #aab7c4;
     position: absolute;
     top: -10px;
     right: 36px;

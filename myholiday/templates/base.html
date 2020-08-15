@@ -17,6 +17,7 @@
 	{% block corecss %}
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=Karla:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 	{% endblock %}
 
 	{% block extra_css %}
@@ -34,22 +35,22 @@
 	{% block extra_js %}
 	{% endblock %}
 
-	<title>MyHoliday Away {% block extra_title %}{% endblock %}</title>
+	<title>MyHoliday travels {% block extra_title %}{% endblock %}</title>
 </head>
 
 <body>
 	<header class="container-fluid fixed-top">
-		<div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
+		<div id="topnav" class="row pt-lg-2 d-none d-lg-flex navbar fixed-top navbar-light bg-light">
 			<div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
 				<a href="{% url 'home' %}" class="nav-link main-logo-link">
-					<h2 class="logo-font text-black my-0"><strong> My</strong>Holiday</h2>
+					<h2 class="logo-font text-black my-0"><strong> My</strong>Holiday travels</h2>
 				</a>
 			</div>
 			<div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
 				<form method="GET" action="{% url 'packages' %}">
                     {% csrf_token %}
 					<div class="input-group w-100">
-						<input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site for  travel plans" />
+						<input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site for travel plans" />
 						<div class="input-group append">
 							<button class="form-control btn btn-black border border-black rounded-0" type="submit">
                                 <span class="icon"><i class="fas fa-search"></i></span>
@@ -97,6 +98,11 @@
                     </li>
                 </ul>
             </div>
+            <div id="new-banner" class="row text-center" style="margin-bottom: 10px">
+                <div class="col bg-black">
+                    <h4 class="logo-font my-1">The new holiday packages have arrived!</h4>                
+                </div>            
+            </div>
         </div>
         <div class="row bg-white">
             <nav class="navbar navbar-expand-lg navbar-light w-100">
@@ -106,11 +112,6 @@
                 {% include 'includes/mobile_top_header.html' %}
                 {% include 'includes/main_nav.html' %}
             </nav>
-        </div>
-        <div id="banner" class="row text-center">
-            <div class="col bg-black text-white">
-                <h4 class="logo-font my-1"> Travel then come back and leave a review!  </h4>
-            </div>
         </div>
     </header>
 
@@ -137,6 +138,16 @@
 
 	{% block content %}
 	{% endblock %}
+
+<footer class="container-fluid">
+    <div class="col-md-6">
+        <p class="uppercase general-sub footer-heading"> Share </p>
+        <ul class="list-inline social-links footer-text">
+            <li class="list-inline-item"><a target="_blank" href="https://www.facebook.com/"><i class="fab fa-facebook-f border border-white" aria-hidden="true"></i><span class="sr-only"></span></a></li>
+            <li class="list-inline-item"><a target="_blank" href="https://twitter.com/?lang=en-gb"><i class="fab fa-twitter border border-white" aria-hidden="true"></i><span class="sr-only"> </span></a></li>
+        </ul>
+    </div>
+</footer>
 
 	{% block postloadjs %}
     <script type="text/javascript">
