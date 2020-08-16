@@ -3,7 +3,7 @@
 
 {% block page_header %}
 
-    <div class="container header-container">
+   <div class="container header-container">
         <div class="row">
             <div class="col"></div>
         </div>
@@ -12,17 +12,18 @@
 {% endblock %}
 
 {% block content %}
-
-    <div class="container-fluid">
-        <video src="{{ MEDIA_URL }}beachbg.mp4" preload autoplay loop></video>
-        <!-- Callout -->
-        <div class="callout jumbotron text-center">
-            <div class="col-12 col-md-6">
-                <h1> It's time for a trip... </h1>
-                <hr style="width: 50px; margin-top: 50px; margin-bottom: 50px">
-                <h5 class="btn btn-light"><a href="{% url 'packages' %}" class="travel-now-button btn btn-lg rounded-0 text-uppercase py-3"> Take a look now </a></h5>
-            </div>
+<div class="video-container">
+<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+    <source src="{{ MEDIA_URL}}beachbg.mp4" type="video/mp4">
+</video>
+</div>
+<div class="container-fluid home-container">
+    <div class="jumbotron">
+        <div class="container">
+            <h3 class="display-4 logo-font">It's time for a trip...</h3>
+            <hr>
+            <p><a class="btn btn-light travel-now-button btn btn-lg btn-block rounded-0 text-center" href="{% url 'packages' %}"> Take a look now </a></p>
         </div>
     </div>
-
+</div>
 {% endblock %}

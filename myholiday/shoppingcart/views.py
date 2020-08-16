@@ -50,7 +50,7 @@ def remove_from_cart(request, item_id):
     cart = request.session.get('cart', {})
     package = get_object_or_404(Package, pk=item_id)
 
-    if item_id in cart:
+    if package in cart:
         del cart[item_id]
     messages.success(request, f'Removed {package.name} from your travels')
 

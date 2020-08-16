@@ -1,6 +1,7 @@
 from django import forms
 
 from .models import Package, Category, Comment
+from profiles.models import User
 
 class PackageForm(forms.ModelForm):
 
@@ -21,8 +22,8 @@ class PackageForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
+        user = User
         fields = (
-            'user',
             'package',
             'text',
             )

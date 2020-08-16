@@ -17,7 +17,8 @@
 	{% block corecss %}
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Alata&family=Karla:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
 	{% endblock %}
 
 	{% block extra_css %}
@@ -39,18 +40,18 @@
 </head>
 
 <body>
-	<header class="container-fluid fixed-top">
-		<div id="topnav" class="row pt-lg-2 d-none d-lg-flex navbar fixed-top navbar-light bg-light">
+	<div class="navbar navbar-light bg-light fixed-top mb-25">
+		<div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
 			<div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
 				<a href="{% url 'home' %}" class="nav-link main-logo-link">
-					<h2 class="logo-font text-black my-0"><strong> My</strong>Holiday travels</h2>
+					<h2 class="logo-font my-0"><strong> My</strong>Holiday travels</h2>
 				</a>
 			</div>
-			<div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+			<div class="col-12 col-lg-4 my-auto py-1 py-lg-0 general-text">
 				<form method="GET" action="{% url 'packages' %}">
                     {% csrf_token %}
-					<div class="input-group w-100">
-						<input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site for travel plans" />
+					<div class="input-group w-100 my-2 my-sm-0">
+						<input class="form-control rounded-0" type="text" name="q" placeholder="Search our site for travel plans" />
 						<div class="input-group append">
 							<button class="form-control btn btn-black border border-black rounded-0" type="submit">
                                 <span class="icon"><i class="fas fa-search"></i></span>
@@ -60,16 +61,16 @@
 				</form>
 			</div>
 
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 general-text">
                 <ul class="list-inline list-unstyled text-center text-lg-right my-0">
                     <li class="list-inline-item dropdown">
                         <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
                                 <div><i class="fas fa-user fa-lg"></i></div>
-                                <p class="my-0">My Account</p>
+                                <p class="my-0 general-text">My Account</p>
                             </div>
                         </a>
-                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                        <div class="dropdown-menu border-0 general-text" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
                                     <a href="{% url 'add_package' %}" class="dropdown-item">Package Management</a>
@@ -82,7 +83,7 @@
                             {% endif %}
                         </div>
                     </li>
-                    <li class="list-inline-item">
+                    <li class="list-inline-item general-text">
                         <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_cart' %}">
                             <div class="text-center">
                                 <div><i class="fas fa-shopping-bag fa-lg"></i></div>
@@ -98,13 +99,8 @@
                     </li>
                 </ul>
             </div>
-            <div id="new-banner" class="row text-center" style="margin-bottom: 10px">
-                <div class="col bg-black">
-                    <h4 class="logo-font my-1">The new holiday packages have arrived!</h4>                
-                </div>            
-            </div>
         </div>
-        <div class="row bg-white">
+        <div class="row">
             <nav class="navbar navbar-expand-lg navbar-light w-100">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -112,8 +108,13 @@
                 {% include 'includes/mobile_top_header.html' %}
                 {% include 'includes/main_nav.html' %}
             </nav>
+            <div id="new-banner" class="row text-center " style="margin-bottom: 10px">
+                <div class="col-12 text-center">
+                    <p class="general-text my-1">The new holiday packages have arrived!</p>                
+                </div>            
+            </div>
         </div>
-    </header>
+    </div>
 
 	{% if messages %}
 	<div class="message-container">
@@ -139,10 +140,10 @@
 	{% block content %}
 	{% endblock %}
 
-<footer class="container-fluid">
+<footer class="container-fluid general-text">
     <div class="col-md-6">
         <p class="uppercase general-sub footer-heading"> Share </p>
-        <ul class="list-inline social-links footer-text">
+        <ul class="list-inline social-links">
             <li class="list-inline-item"><a target="_blank" href="https://www.facebook.com/"><i class="fab fa-facebook-f border border-white" aria-hidden="true"></i><span class="sr-only"></span></a></li>
             <li class="list-inline-item"><a target="_blank" href="https://twitter.com/?lang=en-gb"><i class="fab fa-twitter border border-white" aria-hidden="true"></i><span class="sr-only"> </span></a></li>
         </ul>
