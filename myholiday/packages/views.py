@@ -65,7 +65,7 @@ def one_package_detail(request, package_id):
     package = get_object_or_404(Package, pk=package_id)
 
     # List of comments for this post
-    comments = Comment.objects.all()
+    comments = package.comments.filter(active=True)
 
     new_comment = None
 
@@ -76,7 +76,7 @@ def one_package_detail(request, package_id):
             # Create a comment object but don't save to database just yet
             new_comment = comment_form.save(commit=False)
             # Assign the current package to the comment
-            new_comment.package = package_id
+            new_comment.package = package
             # Save the comment to database
             new_comment.save()
             messages.success(request, 'Successfully added your comment/review!')

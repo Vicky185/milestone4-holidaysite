@@ -35,8 +35,15 @@ class CommentAdmin(admin.ModelAdmin):
     )
     list_filter = (
         'active',
+        'package',
         'user',
         'submitted_at',
+    )
+    search_fields = (
+        'user',
+        'package',
+        'submitted_at',
+        'active'
     )
     actions = ['approve_comments']
 

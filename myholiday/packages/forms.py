@@ -22,8 +22,8 @@ class PackageForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        user = User
-        fields = (
-            'package',
-            'text',
-            )
+        fields = ['package', 'text']
+        widgets = {
+            'package': forms.HiddenInput(),
+            'text': forms.Textarea(attrs={'placeholder': 'Write your comment/review here...'})
+        }
