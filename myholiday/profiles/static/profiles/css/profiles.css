@@ -19,3 +19,8 @@
 #id_default_country option:first-child {
     color: #b7cece;
 }
+
+.general-text {
+    font-family: 'Alata', sans-serif;
+    color: rgb(75, 71, 71)
+}

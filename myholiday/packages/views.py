@@ -82,7 +82,7 @@ def one_package_detail(request, package_id):
             messages.success(request, 'Successfully added your comment/review!')
             return redirect(reverse('one_package_detail', args=[package.id]))
         else:
-            messages.error(request, 'Failes to add your comment to this package. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add your comment to this package. Please ensure the form is valid.')
     else:
         comment_form = CommentForm()
 

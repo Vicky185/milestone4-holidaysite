@@ -15,23 +15,23 @@
 {% block content %}
     <div class="overlay"></div>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row general-text text-justify">
             <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
                 <div class="image-container my-5">
                 {% if package.image_url %}
                     <a href="">
-                        <img class="card-img-top img-fluid" src="{{ package.image_url }}" alt="{{ package.name }}">
+                        <img class="card-img img-fluid" src="{{ package.image_url }}" alt="{{ package.name }}">
                     </a>
                     {% else %}
                     <a href="">
-                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no_image.png" alt="{{ package.name }}">
+                        <img class="card-img img-fluid" src="{{ MEDIA_URL }}no_image.png" alt="{{ package.name }}">
                     </a>
                 {% endif %}
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="package-details-container mb-5 mt-md-5">
-                    <p class="mb-0"> {{ package.name }} </p>
+                    <p class="mb-0 logo-font"> {{ package.name }} </p>
                     {% if package.category %}
                         <p class="small mt-1 mb-0">
                             <a class="text-muted" href="{% url 'packages' %}?category={{ package.category.name }}">
@@ -58,7 +58,7 @@
                     <p class="mt-3">{{ package.departs }}</p>
                     <p class="mt-3">{{ package.description|linebreaks }} </p>
 
-                    <form class="form" action="{% url 'add_to_cart' package.id %}" method="POST">
+                    <form class="form general-text" action="{% url 'add_to_cart' package.id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">
                             <div class="col-12">
@@ -98,12 +98,13 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-                <div class="comment-container my-5">
-                <h2>{{ comments.count }} User Comments </h2>
+        <hr class="col-md-6">
+        <div class="row ">
+            <div class="col-12">
+                <div class="comment-container">
+                    <h2 class="logo-font">{{ comments.count }} User Comments </h2>
                     {% for comment in comments %}
-                        <div class="comments" style="padding: 10px;">
+                        <div class="comments general-text" style="padding: 10px;">
                             <p class="font-weight-bold">
                             {{ comment.user }}
                                 <span class=" text-muted font-weight-normal">
@@ -125,8 +126,8 @@
                             {% csrf_token %}
                             {{ comment_form|crispy }}
                             <div class="text-right">
-                            <a class="btn btn-outline-black rounded 0" href=""> Cancel </a>
-                            <button type="submit" class="btn btn-outline-black rounded 0">Submit</button>
+                            <a class="btn btn-outline-black rounded-0" href="/"> Cancel </a>
+                            <button type="submit" class="btn btn-outline-black rounded-0">Submit</button>
                             </div>
                         </form>
                     {% endif %}
@@ -140,9 +141,37 @@
         </div>
     </div>
 
+    <div class="btt-button shadow-sm rounded-0">
+        <button onclick="topFunction()" id="myBtn" title="Go to top">
+        <i class="fas fa-arrow-up mx-auto my-auto"></i>
+        </button>
+    </div>    
+
 {% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
 {% include '../includes/quantity_input_script.html' %}
+
+
+    <script type="text/javascript">
+	//When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                document.getElementById("myBtn").style.display = "block";
+            }
+            else {
+                document.getElementById("myBtn").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+    </script>
 {% endblock %}

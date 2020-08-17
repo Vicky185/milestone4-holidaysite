@@ -24,7 +24,7 @@
                 <hr class="w-50 mb-1">
             </div>
         </div>
-        <div class="row">
+        <div class="row general-text">
             <div class="package-container col-10 offset-1">
                 <div class="row mt-1 mb-2">
                     <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-md-6 order-md-first">
-                        <p class="text-muted mt-3 text-center text-md-left">
+                        <p class="general-text mt-3 text-center text-md-left">
                             {% if search_term or current_categories or current_sorting != 'None_None' %}
                                 <span class="small"><a href="{% url 'packages' %}">Packages Home</a> | </span>
                             {% endif %}
@@ -51,7 +51,7 @@
                         </p>
                     </div>
                 </div>                
-                <div class="row">
+                <div class="row general-text">
                     {% for package in packages %}
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                             <div class="card h-100 border-0">
@@ -65,7 +65,7 @@
                                 </a>
                                 {% endif %}
                                 <div class="card-body pb-0">
-                                    <a href="{% url 'one_package_detail' package.id %}" class="mb-0">{{ package.name }}</a>
+                                    <a href="{% url 'one_package_detail' package.id %}" class="mb-0 card-title">{{ package.name }}</a>
                                 </div>
                                 <div class="card-footer bg-white pt-0 border-0 text-left">
                                     <div class="row">
@@ -86,8 +86,8 @@
                                             {% endif %}
                                             {% if request.user.is_superuser %}
                                             <small class="ml-3">
-                                                <a href="{% url 'edit_package' package.id %}"> Edit </a>
-                                                <a class="text-danger" href="{% url 'delete_package' package.id %}"> Delete </a>
+                                                <a href="{% url 'edit_package' package.id %}" class="edit-btn"> Edit </a>
+                                                <a class="delete-btn" href="{% url 'delete_package' package.id %}"> Delete </a>
                                             </small>
                                             {% endif %}
                                         </div>
@@ -119,20 +119,37 @@
                 </div>
             </div>
         </div>
-        <div class="btt-button shadow-sm rounded-0 border border-black">
-            <a class="btt-link d-flex h-100">
-                <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
-            </a>
+        <div class="btt-button shadow-sm rounded-0">
+                <button onclick="topFunction()" id="myBtn" title="Go to top">
+                <i class="fas fa-arrow-up mx-auto my-auto"></i>
+                </button>
         </div>    
+        
 
 {% endblock %}
 
 {% block postloadjs %}
     {{ bock.super }}
+
     <script type="text/javascript">
-    $('.btt-link').click(function(e) {
-        window.scrollTo(0,0)
-    })
+	//When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                document.getElementById("myBtn").style.display = "block";
+            }
+            else {
+                document.getElementById("myBtn").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
     </script>
 
 <script type="text/javascript">

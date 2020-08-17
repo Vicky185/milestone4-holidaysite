@@ -13,22 +13,22 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-6">
+            <div class="col-12">
                 <hr>
                 <h2 class="logo-font mb-4">Package Management </h2>
-                <h5 class="text-muted"> Edit Existing Travel Package</h5>
+                <h5 class="general-text"> Edit Existing Travel Package</h5>
                 <hr>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-12 col-md-6">
+        <div class="row general-text">
+            <div class="col-12">
                 <form method="POST" action="{% url 'edit_package' package.id %}" class="form mb-2" enctype="multipart/form-data">
                 {% csrf_token %}
                     {{ form | crispy }}
                     <div class="text-right">
-                        <a class="btn btn-outline-black rounded-0" href="{% url 'packages' %}"> Cancel</a>
-                        <button class="btn btn-black rounded-0" type="submit"> Update Travel Package </button>
+                        <a class="btn delete-btn rounded-0" href="{% url 'packages' %}"> Cancel</a>
+                        <button class="btn add-btn rounded-0" type="submit"> Update Travel Package </button>
                     </div>
                 </form>
             </div>
