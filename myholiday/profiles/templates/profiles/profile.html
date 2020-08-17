@@ -71,31 +71,6 @@
                 </table>
             </div>
         </div>
-        <div class="col-12 col-lg-6">
-            <p class="text-muted">Comment History</p>
-            <div class="comment-history table-responsive">
-                <table class="table table-sm table-borderless">
-                    <thead>
-                    <tr>
-                        <th>Package</th>
-                        <th>Date</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        {% for comment in comments %}
-                            <tr>
-                                <td>
-                                    <a href="{% url 'packages' package_id %}" title="{{ comments.package_id }}">{{ comment.package_id|truncatechars:6 }}</a>
-                                </td>
-                                <td>
-                                    {{ comment.submitted_on }}
-                                </td>                                                
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
     </div>
 
 {% endblock %}

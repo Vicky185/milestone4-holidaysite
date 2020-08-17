@@ -5,8 +5,6 @@ from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 from .forms import UserProfileForm
 
-from packages.models import Comment
-
 from checkout.models import Order
 
 # Create your views here.
@@ -48,21 +46,6 @@ def order_history(request, order_number):
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
-        'from_profile': True,
-    }
-
-    return render(request, template, context)
-
-def comment_history(request, comments):
-    comment = get_object_or_404(Comment, comments=comments)
-
-    messages.info(request, (
-        f'These are your comments and reviews from past trips.'
-    ))
-
-    template = 'packages/one_package_detail.html'
-    context = {
-        'comment': comment,
         'from_profile': True,
     }
 

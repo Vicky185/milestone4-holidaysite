@@ -12,18 +12,22 @@
 {% endblock %}
 
 {% block content %}
-<div class="video-container">
-<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-    <source src="{{ MEDIA_URL}}beachbg.mp4" type="video/mp4">
-</video>
-</div>
-<div class="container-fluid home-container">
-    <div class="jumbotron">
-        <div class="container">
+
+
+    <div class="home-container callout-container">
+        <!-- Callout -->
+        <div class="col-12 callout jumbotron text-center">
             <h3 class="display-4 logo-font">It's time for a trip...</h3>
             <hr>
             <p><a class="btn btn-light travel-now-button btn btn-lg btn-block rounded-0 text-center" href="{% url 'packages' %}"> Take a look now </a></p>
         </div>
+        <div>
+            <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+                <source src="{{ MEDIA_URL}}beachbg.mp4" type="video/mp4">
+            </video>
+        </div>
     </div>
-</div>
+
+
+
 {% endblock %}
