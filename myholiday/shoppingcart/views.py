@@ -35,11 +35,8 @@ def adjust_cart(request, item_id):
 
     if quantity > 0:
         cart[item_id] = quantity
-        messages.success(request, f'Updated your travels to {cart[item_id]}')
     else:
-        del cart[item_id]
-        if not cart[item_id]:
-            cart.pop(item_id)
+        cart.pop(item_id)
         messages.success(request, f'Removed {package.name} from your travels')
 
     request.session['cart'] = cart
@@ -50,8 +47,7 @@ def remove_from_cart(request, item_id):
     cart = request.session.get('cart', {})
     package = get_object_or_404(Package, pk=item_id)
 
-    if package in cart:
-        del cart[item_id]
+    cart.pop(item_id)
     messages.success(request, f'Removed {package.name} from your travels')
 
     request.session['cart'] = cart

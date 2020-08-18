@@ -9,6 +9,8 @@
   </head>
   <body>
     {% block body %}
+    <div class="general-text general-padding">
+        <hr class="col-6">
 
     {% if messages %}
     <div>
@@ -32,6 +34,7 @@
         <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
         {% endif %}
       </ul>
+    </div>
     </div>
     {% block content %}
     {% endblock %}
