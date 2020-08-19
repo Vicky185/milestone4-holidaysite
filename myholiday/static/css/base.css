@@ -185,8 +185,6 @@ button,
     padding: 1.5rem;
 }
 
-/* ----------------------------------------allauth styling */
-
 
 /*-----------------------------------------scroll button */
 
@@ -209,6 +207,56 @@ button,
 #myBtn:hover {
     background-color: #f3f3f3;
     color: #ffea81;
+}
+
+/* ------------------------------------------------------------break images*/
+
+.br-image-venice {
+  height: 50vh;
+
+  background: url('../media/venice.jpeg') no-repeat bottom right fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+
+
+/* ----------------------------------------------------------- toast styles */ 
+
+.toast {
+    margin-left: 20px;
+    color: rgb(133, 129, 129);
+    border-color: #a7d9f1;
+    float: right;
+}
+
+.toast-warning,
+.arrow-warning {
+    color: #f08700;
+}
+
+.toast-success,
+.arrow-success {
+    color: #00a6a6;
+}
+    
+.toast-info,
+.arrow-info {
+    color: #a7d9f1;
+}
+
+.bg-info,
+.bg-success,
+.bg-error,
+.bg-danger {
+    background-color: #f3f3f3;
 }
 
 /* --------------------------------------------------------------- alternative view for media */
