@@ -11,7 +11,7 @@ var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
 var style = {
     base: {
-        color: '#000',
+        color: '#6ab3d4',
         fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
         fontSmoothing: 'antialiased',
         fontSize: '16px',
@@ -20,8 +20,8 @@ var style = {
         }
     },
     invalid: {
-        color: '#dc3545',
-        iconColor: '#dc3545'
+        color: '#f08700',
+        iconColor: '#ffea81'
     }
 };
 
@@ -76,42 +76,30 @@ form.addEventListener('submit', function(ev) {
                         city: $.trim(form.town_or_city.value),
                         country: $.trim(form.country.value),
                         state: $.trim(form.county.value),
-                        }
-                    },
-                shipping_details: {
-                    name: $.trim(form.full_name.value),
-                    phone: $.trim(form.phone_number.value),
-                    address: {
-                        line1: $.trim(form.street_address1.value),
-                        line2: $.trim(form.street_address2.value),
-                        city: $.trim(form.town_or_city.value),
-                        country: $.trim(form.country.value),
-                        postal_code: $.trim(form.postcode.value),
-                        state: $.trim(form.county.value),
                     }
                 },
             }
-        }).then(function(result) {
-            if (result.error) {
-                var errorDiv = document.getElementById  ('card-errors');
-                var html = `
-                    <span class="icon" role="alert">
+    }).then(function(result) {
+        if (result.error) {
+            var errorDiv = document.getElementById  ('card-errors');
+            var html = `
+                <span class="icon" role="alert">
                     <i class="fas fa-times"></i>
-                    </span>
-                    <span>${result.error.message}</span>`;
-                $(errorDiv).html(html);
-                $('#payment-form').fadeToggle(100);
-                $('#loading-overlay').fadeToggle(100);             
-                card.update({'disabled': false});
-                $('#submit-button').attr('disabled', false);
-            } else {
-                if (result.paymentIntent.status === 'succeeded') {
-                   form.submit();
-                }
+                </span>
+                <span>${result.error.message}</span>`;
+            $(errorDiv).html(html);
+            $('#payment-form').fadeToggle(100);
+            $('#loading-overlay').fadeToggle(100);             
+            card.update({'disabled': false});
+            $('#submit-button').attr('disabled', false);
+        } else {
+            if (result.paymentIntent.status === 'succeeded') {
+                form.submit();
             }
-        });
+        }
+    });
     }).fail(function() {
-        // reload page, the error will be in django messages
-        location.reload();
+    // reload page, the error will be in django messages
+    location.reload();
     })
 });

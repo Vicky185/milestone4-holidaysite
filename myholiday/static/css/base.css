@@ -209,25 +209,6 @@ button,
     color: #ffea81;
 }
 
-/* ------------------------------------------------------------break images*/
-
-.br-image-venice {
-  height: 50vh;
-
-  background: url('../media/venice.jpeg') no-repeat bottom right fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  position: relative;
-}
-
-
 /* ----------------------------------------------------------- toast styles */ 
 
 .toast {

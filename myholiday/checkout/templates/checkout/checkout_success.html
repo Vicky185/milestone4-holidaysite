@@ -25,7 +25,7 @@
             </div>
         </div>
 
-        <div class="row general-text">
+        <div class="row general-text general-padding">
             <div class="col-12 col-lg-7">
                 <div class="order-confirmation-wrapper p-2 border">
                     <div class="row">
@@ -171,19 +171,19 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row general-text general-padding">
             <div class="col-12 col-lg-7 text-right">
                 {% if from_profile %}
-                    <a href="{% url 'profile' %}" class="btn btn-black rounded-0 my-2">
+                    <a href="{% url 'profile' %}" class="btn edit-btn rounded-0 my-2">
                         <span class="icon mr-2">
                             <i class="fas fa-angle-left"></i>
                         </span>
                         <span class="btn add-btn rounded-0">Back to Profile</span>
                     </a>
                 {% else %}
-                    <a href="{% url 'packages' %}" class="btn btn-black rounded-0 my-2">
+                    <a href="{% url 'packages' %}" class="btn add-btn rounded-0 my-2">
                         <span class="icon mr-2">
-                            <i class="fas fa-gifts"></i>
+                            <i class="fas fa-plane-departure"></i>
                         </span>
                         <span class="text-uppercase">Have a look here at other travel opportunities for your next trip!</span>
                     </a>
@@ -191,11 +191,4 @@
             </div>
         </div>
     </div>
-{% endblock %}
-
-{% block postloadjs %}
-    {{ block.super }}
-    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
-    {{ client_secret|json_script:"id_client_secret" }}
-    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>    
 {% endblock %}
