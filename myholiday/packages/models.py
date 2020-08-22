@@ -43,6 +43,11 @@ class Comment(models.Model):
     submitted_at = models.DateTimeField(auto_now_add=True)
     text = models.TextField(blank=False, null=False)
     active = models.BooleanField(default=True)
+    approved_comment = models.BooleanField(default=False)
+
+    def approve(self):
+        self.approved_comment = True
+        self.save()
 
     class Meta:
         ordering = (

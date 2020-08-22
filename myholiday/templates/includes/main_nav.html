@@ -6,8 +6,8 @@
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-packages-link">
                 <a href="{% url 'packages' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
-                <a href="{% url 'packages' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
-                <a href="{% url 'packages' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
+                <a href="{% url 'packages' %}?sort=rating&direction=desc" class="dropdown-item">By Rating</a>
+                <a href="{% url 'packages' %}?sort=category&direction=asc" class="dropdown-item">By Category</a>
                 <a href="{% url 'packages' %}" class="dropdown-item">All Packages</a>
             </div>
         </li>
@@ -15,22 +15,22 @@
         <li class="nav-item dropdown">
             <a class="general-text font-weight-bold nav-link" href="#" id="all-categories-link" data-toggle="dropdown" aria-labelledby="categories-link">Types of Holiday </a>
             <div class="dropdown-menu border-0" aria-labelledby="categories-link">
-                <a class="font-weight-bold nav-link mr-5" href="{% url 'packages' %}?category=beach" id="beach-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a href="{% url 'packages' %}?category=beach" class="dropdown-item" aria-haspopup="true" aria-expanded="false">
                     Beach 
                 </a>
-                <a class="font-weight-bold nav-link mr-5" href="{% url 'packages' %}?category=party" id="party-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a  href="{% url 'packages' %}?category=party" class="dropdown-item" aria-haspopup="true" aria-expanded="false">
                     Party 
                 </a>
-                <a class="font-weight-bold nav-link mr-5" href="{% url 'packages' %}?category=ski" id="ski-link"   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a href="{% url 'packages' %}?category=ski" class="dropdown-item" aria-haspopup="true" aria-expanded="false">
                     Ski 
                 </a>
-                <a class="font-weight-bold nav-link mr-5" href="{% url 'packages' %}?category=culture"     id="culture-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a href="{% url 'packages' %}?category=culture" class="dropdown-item" aria-haspopup="true" aria-expanded="false">
                     Cultural 
                 </a>
-                <a class="font-weight-bold nav-link mr-5" href="{% url 'packages' %}?category=safari" id="safari-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a href="{% url 'packages' %}?category=safari" class="dropdown-item" aria-haspopup="true" aria-expanded="false">
                 Safari 
                 </a>
-                <a class="font-weight-bold nav-link mr-5" href="{% url 'packages' %}?category=city" id="city-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a href="{% url 'packages' %}?category=city" class="dropdown-item" aria-haspopup="true" aria-expanded="false">
                 City Break 
                 </a>
             </div>

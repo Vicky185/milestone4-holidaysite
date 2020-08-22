@@ -29,12 +29,14 @@ body {
 
 .general-text {
     font-family: 'Alata', sans-serif;
-    color: rgb(75, 71, 71)
+    color: rgb(75, 71, 71);
+    text-decoration: none;
 }
 
 .general-text-add {
     font-family: 'Alata', sans-serif;
-    color: rgb(133, 129, 129)
+    color: rgb(133, 129, 129);
+    text-decoration: none;
 }
 .general-padding {
     padding-left: 5px;
@@ -81,7 +83,7 @@ footer {
 /* --------------------------------------------------------------- imagery on home page*/
 
 .header-container {
-    margin: 20px 0;
+    margin: 50px 0;
 }
 
 .home-container {
@@ -105,7 +107,6 @@ video {
     width: auto;
     height: 400px;
     opacity: 75%;
-    z-index: 1;
 }
 
 .travel-now-button {
@@ -120,6 +121,18 @@ video {
     background-color: #00a6a6ad;
     color: #fafafa;
     z-index: 2;
+}
+
+.price-text,
+.account-text {
+    color: #00a6a6;
+    text-decoration: none;
+}
+
+.price-text:hover,
+.account-text:hover {
+    color: #0a7575;
+    text-decoration: none;
 }
 
 /* ------------------------------------------card styles */
@@ -163,8 +176,13 @@ button,
     color: #ebeff1;
 }
 
+.search-btn {
+    background-color: #f3f3f3; 
+}
+
 .search-btn:hover {
-    border: #f7ac4b;
+    background-color: #f8f0c6;
+    color: white;
 }
 
 .remove-item {
@@ -184,6 +202,14 @@ button,
 .package-description {
     padding: 1.5rem;
 }
+
+
+.empty-cart {
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+
+
 
 /*-----------------------------------------scroll button */
 

@@ -69,8 +69,8 @@
                                             </div>
                                         </div>
                                     </form>
-                                        <a class="update-link btn update-item text-info"><small> Update</small></a>
-                                        <a class="float-right btn remove-item" id="remove_{{ item.item_id}}"><small> Remove</small></a>
+                                        <a class="update-link btn update-item text-info" href=""><small> Update</small></a>
+                                        <a class="float-right btn remove-item" id="remove_{{ item.item_id}}" href=""><small> Remove</small></a>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">£{{ item.package.price | calc_subtotal:item.quantity }}</p>
@@ -102,8 +102,8 @@
                         </table>
                     </div>
                 {% else %}
-                    <p class="lead mb-5">Your cart is empty.</p>
-                    <a href="{% url 'packages' %}" class="btn delete-btn rounded-0 btn-lg">
+                    <p class="general-text empty-cart justify-text-center">Your cart is empty.</p>
+                    <a href="{% url 'packages' %}" class="btn delete-btn rounded-0 btn-lg empty-cart">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>

@@ -51,5 +51,5 @@ class CommentAdmin(admin.ModelAdmin):
         queryset.update(active=True)
 
 admin.site.register(Package, PackageAdmin)
-admin.site.register(Category, CategoryAdmin)
 admin.site.register(Comment, CommentAdmin)
+admin.site.register(Category, CategoryAdmin)

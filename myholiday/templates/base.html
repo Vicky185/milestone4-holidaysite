@@ -67,7 +67,7 @@
                             <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div class="text-center">
                                     <div><i class="fas fa-user fa-lg"></i></div>
-                                    <p class="my-0 general-text">My Account</p>
+                                    <p class="my-0 font-weight-bold general-text account-text">My Account</p>
                                 </div>
                             </a>
                             <div class="dropdown-menu border-0 general-text" aria-labelledby="user-options">
@@ -83,8 +83,8 @@
                                 {% endif %}
                             </div>
                         </li>
-                        <li class="list-inline-item general-text-add">
-                            <a class="{% if grand_total %}text-info font-weight-bold{% else %}general-text{% endif %} nav-link" href="{% url 'view_cart' %}">
+                        <li class="list-inline-item price-text">
+                            <a class="{% if grand_total %}font-weight-bold{% else %}general-text{% endif %} nav-link" href="{% url 'view_cart' %}">
                                 <div class="text-center">
                                     <div><i class="fas fa-shopping-bag fa-lg"></i></div>
                                     <p class="my-0">
@@ -109,7 +109,7 @@
         </nav>
 	</div>
 	{% if messages %}
-	<div class="message-container">
+	<div class="message-container general-text">
         {% for message in messages %}
             {% with message.level as level %}
                 {% if level == 40 %}

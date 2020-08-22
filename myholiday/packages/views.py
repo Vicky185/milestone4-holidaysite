@@ -67,31 +67,10 @@ def one_package_detail(request, package_id):
     # List of comments for this post
     comments = package.comments.filter(active=True)
 
-    new_comment = None
-
-    if request.method == 'POST':
-        # A comment is or was posted
-        comment_form = CommentForm(data=request.POST)
-        if comment_form.is_valid():
-            # Create a comment object but don't save to database just yet
-            new_comment = comment_form.save(commit=False)
-            # Assign the current package to the comment
-            new_comment.package = package
-            # Save the comment to database
-            new_comment.save()
-            messages.success(request, 'Successfully added your comment/review!')
-            return redirect(reverse('one_package_detail', args=[package.id]))
-        else:
-            messages.error(request, 'Failed to add your comment to this package. Please ensure the form is valid.')
-    else:
-        comment_form = CommentForm()
-
     template = 'packages/one_package_detail.html'
     context_detail = {
         'package': package,
         'comments': comments,
-        'new_comment': new_comment,
-        'comment_form': comment_form,
     }
 
     return render(request, template, context_detail)
@@ -158,9 +137,46 @@ def delete_package(request, package_id):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only members of the MyHoliday travels team can do that...')
         return redirect(reverse('home'))
-        
+
     package = get_object_or_404(Package, pk=package_id)
     package.delete()
     messages.success(request, 'Package deleted!')
     return redirect(reverse('packages'))
 
+def add_comment(request, package_id):
+    package = get_object_or_404(Package, pk=package_id)
+    if request.method == "POST":
+        # A comment is or was posted
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            # Create a comment object but don't save to database just yet
+            comment = form.save(commit=False)
+            # Assign the current package to the comment
+            comment.package = package
+            # Save the comment to database
+            comment.save()
+            messages.success(request, 'Successfully added your comment/review!')
+            return redirect('one_package_detail', pk=package.package_id)
+    else:
+        form = CommentForm()
+
+    template = 'packages/add_comment.html'
+    context = {
+        'form': form,
+        'package': package,
+    }
+
+    return render(request, template, context)
+
+@login_required
+def delete_comment(request, comment_id):
+    """ Delete an existing comment on a travel package  """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only members of the MyHoliday travels team can do that...')
+        return redirect(reverse('home'))
+
+    comment = get_object_or_404(Comment, pk=comment_id)
+    comment.delete()
+    messages.success(request, 'Comment deleted!')
+    return redirect(reverse('packages'))
