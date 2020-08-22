@@ -1,3 +1,13 @@
+.profile-info {
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+.order-history-info {
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
 .order-history {
     max-height: 416px; /* height of profile form and submit button */
     overflow-y: auto; 
@@ -23,4 +33,15 @@
 .general-text {
     font-family: 'Alata', sans-serif;
     color: rgb(75, 71, 71)
+}
+
+
+@media(min-width: 400px) {
+    .profile-info {
+        margin-left: 40px;
+        margin-right:20px;
+    }
+    .order-history-info {
+        margin-right: 30px;
+    }
 }
