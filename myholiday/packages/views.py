@@ -60,7 +60,7 @@ def all_packages(request):
         packages = paginator.page(1)
     except EmptyPage:
         # If the page is out of range deliver last page of results 
-            packages = paginator.page(paginator.num_pages)
+        packages = paginator.page(paginator.num_pages)
             
     current_sorting = f'{sort}_{direction}'
 

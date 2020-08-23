@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.contrib import messages
 from packages.models import Package
 
@@ -37,18 +37,22 @@ def adjust_cart(request, item_id):
         cart[item_id] = quantity
     else:
         cart.pop(item_id)
-        messages.success(request, f'Removed {package.name} from your travels')
+        messages.success(request, f'Updated {package.name} from your travels')
 
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
 
 def remove_from_cart(request, item_id):
     """ Remove item from the cart """
-    cart = request.session.get('cart', {})
-    package = get_object_or_404(Package, pk=item_id)
+    try:
+        cart = request.session.get('cart', {})
+        package = get_object_or_404(Package, pk=item_id)
 
-    cart.pop(item_id)
-    messages.success(request, f'Removed {package.name} from your travels')
+        cart.pop(item_id)
+        messages.success(request, f'Removed {package.name} from your travels')
 
-    request.session['cart'] = cart
-    return redirect(reverse('view_cart'))
+        request.session['cart'] = cart
+        return HttpResponse(status=200)
+    
+    except Exception as e:
+        return HttpResponse(status=500)
