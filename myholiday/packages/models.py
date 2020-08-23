@@ -40,7 +40,7 @@ class Package(models.Model):
 class Comment(models.Model):
     package = models.ForeignKey(Package, on_delete=models.CASCADE, 
                                 related_name='comments')
-    user = models.ForeignKey(User, null=False, default=User, on_delete=models.DO_NOTHING)
+    user = models.ForeignKey(User, null=False, default='', on_delete=models.CASCADE)
     submitted_at = models.DateTimeField(auto_now_add=True)
     text = models.TextField(blank=False, null=False)
     active = models.BooleanField(default=True)

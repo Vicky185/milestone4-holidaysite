@@ -61,6 +61,7 @@ footer {
     margin-top: 50px;
     bottom: 0;
     position: relative;
+    width:100%;
 }
 
 /* ----------------------------------------------------------nav */
@@ -294,6 +295,7 @@ button,
     }
     .home-container {
         height: 500px;
+        margin-top: 250px;
         margin-bottom: 25px;
     }
     video{

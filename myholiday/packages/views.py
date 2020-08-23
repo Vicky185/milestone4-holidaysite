@@ -90,10 +90,13 @@ def one_package_detail(request, package_id):
         if comment_form.is_valid():
             # Create a comment object but don't save to database just yet
             new_comment = comment_form.save(commit=False)
-            # Assign current package to the comment
+            # Assign current user to the comment
+            new_comment.user = request.user
+            # Assign the comment to the package
             new_comment.package = package
             # Save comment to the database
             new_comment.save()
+            return redirect(reverse('one_package_detail', args=[package.id]))
     else:
         comment_form = CommentForm()
 
