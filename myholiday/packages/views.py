@@ -52,16 +52,15 @@ def all_packages(request):
             packages = packages.filter(queries)
 
     paginator = Paginator(packages, 8) # 8 posts display on each page
-    if request.GET:
-        if 'page' in request.GET:
-            try:
-                packages = paginator.page(page)
-            except PageNotAnInteger:
-                # If the page is not an integer deliver the first page
-                packages = paginator.page(1)
-            except EmptyPage:
-                # If the page is out of range deliver last page of results 
-                packages = paginator.page(paginator.num_pages)
+    page = request.GET.get('page')
+    try:
+        packages = paginator.page(page)
+    except PageNotAnInteger:
+        # If the page is not an integer deliver the first page
+        packages = paginator.page(1)
+    except EmptyPage:
+        # If the page is out of range deliver last page of results 
+            packages = paginator.page(paginator.num_pages)
             
     current_sorting = f'{sort}_{direction}'
 
