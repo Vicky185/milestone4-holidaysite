@@ -14,20 +14,11 @@ def all_packages(request):
     """ a view to show all of the available holidays, includes sorting and search queries"""
 
     packages = Package.objects.all()
-    paginator = Paginator(packages, 8) # 8 posts display on each page
-    page = request.GET.get('page')
-    try:
-        packages = paginator.page(page)
-    except PageNotAnInteger:
-        # If the page is not an integer deliver the first page
-        packages = paginator.page(1)
-    except EmptyPage:
-        # If the page is out of range deliver last page of results 
-        packages = paginator.page(paginator.num_pages)
     query = None
     categories = None
     sort = None
     direction = None
+    page = None
 
     if request.GET:
         if request.GET:
@@ -59,7 +50,19 @@ def all_packages(request):
             
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             packages = packages.filter(queries)
-    
+
+    paginator = Paginator(packages, 8) # 8 posts display on each page
+    if request.GET:
+        if 'page' in request.GET:
+            try:
+                packages = paginator.page(page)
+            except PageNotAnInteger:
+                # If the page is not an integer deliver the first page
+                packages = paginator.page(1)
+            except EmptyPage:
+                # If the page is out of range deliver last page of results 
+                packages = paginator.page(paginator.num_pages)
+            
     current_sorting = f'{sort}_{direction}'
 
     context = {
