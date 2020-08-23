@@ -107,33 +107,38 @@
         <div class="row ">
             <div class="col-12">
                 <div class="comment-container">
-                    <h2 class="logo-font">{{ comments.count }} User Comments </h2>
-                    {% for comment in comments %}
-                        <div class="comments general-text text-center" style="padding: 10px;">
-                            <p class="font-weight-bold">
-                            {{ comment.user }}
-                                <span class=" text-muted font-weight-normal">
-                                commented on {{ comment.package }}, {{ comment.submitted_at }}
-                                </span>
-                            </p>
-                            {{ comment.text | linebreaks }}
-                        </div>
-                    {% endfor %}
+                {% with comments.count as total_comments %}
+                    <h2 class="logo-font">{{ total_comments }} User Comments </h2>
+                {% endwith %}
+                {% for comment in comments %}
+                    <div class="comments general-text text-center" style="padding: 10px;">
+                        <p class="font-weight-bold">
+                        {{ comment.user }}
+                            <span class=" text-muted font-weight-normal">
+                            commented on {{ comment.package }}, {{ comment.submitted_at }}
+                            </span>
+                        </p>
+                        {{ comment.text | linebreaks }}
+                    </div>
+                {% endfor %}
             {% if request.user.is_authenticated %}
-                    <div class="card-body">
+                    <div class="card-body general-text">
                     {% if new_comment %}
-                        <div class="alert alert-success" role="alert">
-                        Your comment is awaiting moderation
+                        <div class="alert-banner" role="alert">
+                        Your comment has been added!
                         </div>
                     {% else %}
                         <hr class="col-6">
-                        <h3 class="logo-font">Leave a comment</h3>
+                        <h3 class="logo-font">Leave a comment here</h3>
                         <form method="POST" action="{% url 'one_package_detail' package.id %}" class="form mb-2" enctype="multipart/form-data">
                             {% csrf_token %}
+                            <p class="general-text general-padding"> Hello, <strong>{{ user }}</strong> please fill in the form below to leave a comment/review about your experience! </p>
+                            <div class="general-text general-padding">
                             {{ comment_form|crispy }}
+                            </div>
                             <div class="text-right">
-                            <a class="btn btn-outline-black rounded-0" href="/"> Cancel </a>
-                            <button type="submit" class="btn btn-outline-black rounded-0">Submit</button>
+                            <a class="btn delete-btn rounded-0" href="/"> Cancel </a>
+                            <button type="submit" class="btn add-btn rounded-0">Add Comment</button>
                             </div>
                         </form>
                     {% endif %}

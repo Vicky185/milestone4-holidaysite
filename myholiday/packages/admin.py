@@ -45,10 +45,6 @@ class CommentAdmin(admin.ModelAdmin):
         'submitted_at',
         'active'
     )
-    actions = ['approve_comments']
-
-    def approve_comments(self, request, queryset):
-        queryset.update(active=True)
 
 admin.site.register(Package, PackageAdmin)
 admin.site.register(Comment, CommentAdmin)

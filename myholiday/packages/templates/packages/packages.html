@@ -120,6 +120,9 @@
                 </div>
             </div>
         </div>
+
+        {% include '../packages/includes/pagination.html' with page=packages %}
+
         <div class="btt-button shadow-sm rounded-0">
                 <button onclick="topFunction()" id="myBtn" title="Go to top">
                 <i class="fas fa-arrow-up mx-auto my-auto"></i>

@@ -193,6 +193,16 @@ button,
     color: #00a6a6;
 }
 
+/* -------------------------------------------------packages page styles */
+
+.pagination {
+    margin-top: 50px;
+}
+
+.pagination-colors {
+    text-decoration: none;
+}
+
 /* -------------------------------------------------single page styles */
 
 .card-img {
@@ -209,7 +219,11 @@ button,
     margin-bottom: 25px;
 }
 
-
+.alert-banner {
+    background-color: #00a6a6;
+    color: #fafafa;
+    width: 100%;
+}
 
 /*-----------------------------------------scroll button */
 

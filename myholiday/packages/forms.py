@@ -22,11 +22,7 @@ class PackageForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = [
+        fields = (
             'user',
-            'package',
             'text',
-            ]
-        widgets = {
-            'text': forms.Textarea(attrs={'placeholder': 'Write your comment/review here...'})
-        }
+        )
