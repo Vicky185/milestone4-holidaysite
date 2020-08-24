@@ -1,1 +1,1 @@
-web: gunicorn myholiday.wsgi:application
+web: python manage.py run_gunicorn
