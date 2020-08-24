@@ -1,1 +1,1 @@
-web: gunicorn myholiday.wsgi
+web: gunicorn myholiday.myholiday.wsgi
