@@ -42,11 +42,11 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'home',
-    'packages',
-    'shoppingcart',
-    'checkout',
-    'profiles',
+    'myholiday.home',
+    'myholiday.packages',
+    'myholiday.shoppingcart',
+    'myholiday.checkout',
+    'myholiday.profiles',
 
     # Other
     'crispy_forms',
@@ -113,7 +113,7 @@ ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 
-WSGI_APPLICATION = 'myholiday.wsgi.application'
+WSGI_APPLICATION = 'myholiday.myholiday.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
